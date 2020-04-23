@@ -1,7 +1,5 @@
 FROM python:3.7
 
-RUN apt update
-
 WORKDIR /app
 
 ADD ./app /app/
