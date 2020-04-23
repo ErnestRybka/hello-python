@@ -1,8 +1,11 @@
 FROM python:3.7
 
-RUN mkdir /app
+RUN apt update
+
 WORKDIR /app
-ADD . /app/
+
+ADD ./app /app/
+
 RUN pip install -r requirements.txt
 
 EXPOSE 5000
