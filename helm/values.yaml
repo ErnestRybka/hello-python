@@ -1,0 +1,3 @@
+registry: rybkaer
+replicas: 1
+tag: latest

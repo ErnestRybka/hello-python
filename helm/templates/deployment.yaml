@@ -1,11 +1,14 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Chart.Name }}
   labels:
     app: {{ .Chart.Name }}
 spec:
-  replicas: 2
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
   template:
     metadata:
       labels:
@@ -14,6 +17,5 @@ spec:
       containers:
       - name: hello-python
         image: {{ .Values.registry }}/test-app:{{ .Chart.Version }}
-        imagePullPolicy: Never
         ports:
         - containerPort: 5000
